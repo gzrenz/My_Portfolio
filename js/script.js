@@ -34,8 +34,8 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
 
 // Sample Blog Posts
 const blogPosts = [
-    { title: 'My First Blog Post', content: 'Lorem ipsum', date: '2025-04-17' },
-    { title: 'Learning Bootstrap', content: 'Lorem ipsum', date: '2025-04-17' }
+    { title: 'My First Blog Post', content: 'Lorem ipsum, walang mailagay basta \'yan', date: '2025-04-17' },
+    { title: 'Learning Bootstrap', content: 'Lorem ipsum, same dito', date: '2025-04-17' }
 ];
 
 function loadBlogs() {
