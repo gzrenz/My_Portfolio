@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Lawrenz' Portfolio Website</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" onclick="showTab('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hobbies" onclick="showTab('hobbies')">Hobbies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills" onclick="showTab('skills')">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#expectations" onclick="showTab('expectations')">Expectations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts" onclick="showTab('contacts')">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog" onclick="showTab('blog')">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1>Hi, I'm Lawrenz</h1>
+                    <p>Welcome to my portfolio website! I'm an IT student aspiring to create amazing web and mobile applications.</p>
+                    <a href="#contacts" class="btn btn-primary" onclick="showTab('contacts')">Get in Touch</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="assets/profile.jpg" alt="Profile Picture" class="img-fluid rounded-circle" style="max-width: 200px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Hobbies Tab -->
+        <div id="hobbies" class="tab-content d-none">
+            <h2>Hobbies</h2>
+            <p>I enjoy listening to music (Wagner and Ravel), reading philosophy and literature, I dabble on the guitar, and play video games. These activities keep me creative, active, and help me cope with stress. Images shown below (ctto because I have bad camera quality)</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="assets/music.jpg" alt="Hobby 1" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="assets/philosophy.jpg" alt="Hobby 2" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="assets/guitar.jpg" alt="Hobby 3" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="assets/game.png" alt="Hobby 4" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="skills" class="tab-content d-none">
+            <h2>Skills</h2>
+            <p>Here are some of my core skills (junior level/beginner-intermediate skills):</p>
+            <ul class="list-group">
+                <li class="list-group-item">HTML, CSS, JavaScript</li>
+                <li class="list-group-item">Bootstrap or Tailwind & Responsive Design</li>
+                <li class="list-group-item">Java Android Game Development using LibGDX</li>
+                <li class="list-group-item">Working with Grok (X/Twitter) and GitHub CoPilot (to learn and enhance my skills, and use reverse engineering)</li>
+                <li class="list-group-item">Basic knowledge of numpy and panda with Python</li>
+                <!-- <li class="list-group-item">Node.js & Express</li>
+                <li class="list-group-item">Git & Version Control</li> -->
+            </ul>
+        </div>
+
+        <!-- Expectations Tab -->
+        <div id="expectations" class="tab-content d-none">
+            <h2>Expectations</h2>
+            <p>I aim to work on challenging projects that push my skills, collaborate with innovative teams, and contribute to meaningful solutions.</p>
+            <p>I'm interested in web and mobile development, and I'm eager to learn and grow in these areas.</p>
+            <p>I want to learn React.js and Node.js, and proper software architecture</p>
+            <p>I would like to learn more about AI and fundamental computer science concepts</p>
+            <p>I would also like to do more game development using LibGDX with Java, and learn Kotlin for creating utility applications on Android</p> 
+            <p>I plan to create a LinkedIn account in the future to connect with professional full-stack developers</p>
+            <p>I want to learn more about Git & Version Control along GitHub to save my projects and keep them ordered, updated, and easier to scale and control</p>
+            <p>I'm open to internships, freelance opportunities, and full-time positions -- my self-assesment for these positions is on the junior level (beginner-intermediate)</p>
+        </div>
+
+        <!-- Contacts Tab -->
+        <div id="contacts" class="tab-content d-none">
+            <h2>Contact Me</h2>
+            <p>This page does not have server-side functionality -- yet. You can send a message but it won't go through my gmail account -- yet.</p>
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+            <div class="mt-3">
+                <p>Email: genczarlawrenz@gmail.com</p>
+                <!-- <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">My Profile</a></p>
+            -->
+                <p>Phone: 0966 401 9713 (Globe), 0976 494 5970 (Gomo)</p>
+                <p>Facebook: Genczar Lawrenz Tomines</p>
+            </div>
+        </div>
+
+        <!-- blog Tab -->
+        <div id="blog" class="tab-content d-none">
+            <h2>Blog</h2>
+            <div id="blogPosts">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; 2025 Genczar Lawrenz Tomines. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

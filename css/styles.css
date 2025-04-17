@@ -1,0 +1,32 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+.tab-content {
+    min-height: 400px;
+}
+
+.img-fluid.rounded-circle {
+    border: 4px solid #007bff;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 0;
+}
+
+footer {
+    border-top: 1px solid #e7e7e7;
+}
