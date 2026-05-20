@@ -1,15 +1,56 @@
-// Loading blog posts 
-loadBlogPosts().then(() => {
-    // Initialize after blogs are loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        loadBlogs();
-        showTab('home');
+window.blog_posts = [];
+
+// Load blog posts from JSON
+async function loadBlogPosts() {
+    try {
+        const response = await fetch('data/blog_posts.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        window.blog_posts = await response.json();
+        console.log(`✅ Loaded ${window.blog_posts.length} blog posts`);
+    } catch (error) {
+        console.error("❌ Failed to load blog posts:", error);
+        window.blog_posts = [];
+    }
+}
+
+function loadBlogs() {
+    const container = document.getElementById('blogPosts');
+    if (!container) {
+        console.error("❌ Element with id='blogPosts' not found!");
+        return;
+    }
+
+    container.innerHTML = '';
+
+    if (window.blog_posts.length === 0) {
+        container.innerHTML = `
+            <div class="alert alert-info">
+                No blog posts found yet.
+            </div>`;
+        return;
+    }
+
+    window.blog_posts.forEach(post => {
+        const card = `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${post.title}</h5>
+                    <p class="card-text">${post.content}</p>
+                    <p class="card-text">
+                        <small class="text-muted">${post.date} • ${post.category || 'General'}</small>
+                    </p>
+                </div>
+            </div>
+        `;
+        container.innerHTML += card;
     });
-});
+}
 
 // Tab Switching
 function showTab(tabId) {
-    // Hide all tab contents
+    // Hide all tabs
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.add('d-none');
         tab.classList.remove('active');
@@ -17,51 +58,37 @@ function showTab(tabId) {
 
     // Show selected tab
     const activeTab = document.getElementById(tabId);
-    activeTab.classList.remove('d-none');
-    activeTab.classList.add('active');
+    if (activeTab) {
+        activeTab.classList.remove('d-none');
+        activeTab.classList.add('active');
+    }
 
-    // Update active nav link
+    // Update nav links
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${tabId}`) {
-            link.classList.add('active');
-        }
+        link.classList.toggle('active', link.getAttribute('href') === `#${tabId}`);
     });
+
+    // Refresh blogs when switching to blog tab
+    if (tabId === 'blog' && window.blog_posts.length === 0) {
+        loadBlogs();
+    }
 }
 
-// Contact Form Submission
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+// Contact Form
+document.getElementById('contactForm')?.addEventListener('submit', function (e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Simulate form submission (replace with actual backend logic)
+    const name = document.getElementById('name').value.trim();
+    if (!name) {
+        alert("Please enter your name.");
+        return;
+    }
     alert(`Thank you, ${name}! Your message has been sent.`);
     this.reset();
 });
 
-
-
-function loadBlogs() {
-    const blogContainer = document.getElementById('blogPosts');
-    blogContainer.innerHTML = '';
-    blog_posts.forEach(post => {
-        const blogCard = `
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">${post.title}</h5>
-                    <p class="card-text">${post.content}</p>
-                    <p class="card-text"><small class="text-muted">${post.date}</small></p>
-                </div>
-            </div>
-        `;
-        blogContainer.innerHTML += blogCard;
-    });
-}
-
-// Load blogs on page load
-document.addEventListener('DOMContentLoaded', () => {
-    loadBlogs();
-    showTab('home'); // Show home tab by default
+// Initialize everything
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadBlogPosts();   // Wait for blogs to load
+    loadBlogs();             // Load blogs on home or initial page
+    showTab('home');         // Show home tab by default
 });
