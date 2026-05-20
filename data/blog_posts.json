@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "My First Blog Post",
+        "content": "walang mailagay basta 'yan",
+        "date": "April 17, 2025",
+        "category": "Testing"
+    },
+    {
+        "id": 2,
+        "title": "Blog Debug",
+        "content": "testing",
+        "date": "April 17, 2025",
+        "category": "Testing"
+    }
+]

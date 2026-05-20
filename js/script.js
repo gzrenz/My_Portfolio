@@ -1,3 +1,12 @@
+// Loading blog posts 
+loadBlogPosts().then(() => {
+    // Initialize after blogs are loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        loadBlogs();
+        showTab('home');
+    });
+});
+
 // Tab Switching
 function showTab(tabId) {
     // Hide all tab contents
@@ -32,16 +41,12 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     this.reset();
 });
 
-// Sample Blog Posts
-const blogPosts = [
-    { title: 'My First Blog Post', content: 'Lorem ipsum, walang mailagay basta \'yan', date: '2025-04-17' },
-    { title: 'Learning Bootstrap', content: 'Lorem ipsum, same dito', date: '2025-04-17' }
-];
+
 
 function loadBlogs() {
     const blogContainer = document.getElementById('blogPosts');
     blogContainer.innerHTML = '';
-    blogPosts.forEach(post => {
+    blog_posts.forEach(post => {
         const blogCard = `
             <div class="card mb-3">
                 <div class="card-body">
