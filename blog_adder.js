@@ -1,60 +1,77 @@
-// blog_adder.js - Run this from terminal to add new blogs
+// blog_adder.js
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.join(__dirname, 'data', 'blog_posts.json');
+const mainDataPath = path.join(__dirname, 'data', 'blog_posts.json');
+const newPostPath = path.join(__dirname, 'new_blog.json');
 
-function addBlog(title, content, category = "General") {
-    if (!title || !content) {
-        console.error("❌ Title and content are required!");
+function addBlogFromFile() {
+    // Check if new-blog.json exists
+    if (!fs.existsSync(newPostPath)) {
+        console.error("❌ 'new-blog.json' file not found in project root!");
+        console.log("Please create 'new-blog.json' first.");
         return;
     }
 
-    let posts = [];
-    
-    // Read existing posts
-    if (fs.existsSync(dataPath)) {
-        const data = fs.readFileSync(dataPath, 'utf8');
-        posts = JSON.parse(data);
+    let newPost;
+    try {
+        const data = fs.readFileSync(newPostPath, 'utf8');
+        newPost = JSON.parse(data);
+    } catch (err) {
+        console.error("❌ Error reading new-blog.json:", err.message);
+        return;
     }
 
-    const newPost = {
+    // Validate required fields
+    if (!newPost.title || !newPost.content) {
+        console.error("❌ Error: 'title' and 'content' are required in new-blog.json");
+        return;
+    }
+
+    // Read existing blog posts
+    let posts = [];
+    if (fs.existsSync(mainDataPath)) {
+        try {
+            const mainData = fs.readFileSync(mainDataPath, 'utf8');
+            posts = JSON.parse(mainData);
+        } catch (err) {
+            console.warn("⚠️ Could not read existing blog_posts.json, starting fresh.");
+        }
+    }
+
+    // Create new blog object
+    const blogEntry = {
         id: posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1,
-        title: title,
-        content: content,
-        date: new Intl.DateTimeFormat('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+        title: newPost.title.trim(),
+        content: newPost.content.trim(),
+        date: new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
         }).format(new Date()),
-        category: category
+        category: (newPost.category || "General").trim()
     };
 
-    posts.unshift(newPost); // Add to the beginning
+    // Add new post at the beginning
+    posts.unshift(blogEntry);
 
-    // Write back to file
-    fs.writeFileSync(dataPath, JSON.stringify(posts, null, 4));
+    // Save to main blog_posts.json
+    fs.writeFileSync(mainDataPath, JSON.stringify(posts, null, 4));
 
-    console.log("✅ Blog post added successfully!");
-    console.log(`Title: ${title}`);
-    console.log(`Category: ${category}`);
-    console.log(`Total posts: ${posts.length}`);
+    console.log("✅ Blog post successfully added!");
+    console.log(`📌 Title: ${blogEntry.title}`);
+    console.log(`📌 Category: ${blogEntry.category}`);
+    console.log(`📌 Total posts: ${posts.length}`);
+
+    // Optional: Clear or archive the new-blog.json
+    const clearedTemplate = {
+        "title": "",
+        "content": "",
+        "category": "General"
+    };
+    fs.writeFileSync(newPostPath, JSON.stringify(clearedTemplate, null, 4));
+    
+    console.log("🧹 new-blog.json has been cleared for next post.");
 }
 
-// Command line usage
-if (require.main === module) {
-    const title = process.argv[2];
-    const content = process.argv[3];
-    const category = process.argv[4] || "General";
-
-    if (!title || !content) {
-        console.log("\nUsage:");
-        console.log("node blog_adder.js \"Blog Title\" \"Blog content here\" \"Category\"");
-        console.log("\nExample:");
-        console.log('node blog_adder.js "My New Post" "This is the content of my blog..." "Career"');
-    } else {
-        addBlog(title, content, category);
-    }
-}
-
-module.exports = { addBlog };
+addBlogFromFile();

@@ -1,15 +1,29 @@
 [
     {
-        "id": 1,
-        "title": "My First Blog Post",
-        "content": "walang mailagay basta 'yan",
-        "date": "April 17, 2025",
+        "id": 4,
+        "title": "Test",
+        "content": "test",
+        "date": "May 20, 2026",
+        "category": "Testing"
+    },
+    {
+        "id": 3,
+        "title": "Blog adder terminal tool test",
+        "content": "Test",
+        "date": "May 20, 2026",
         "category": "Testing"
     },
     {
         "id": 2,
         "title": "Blog Debug",
         "content": "testing",
+        "date": "April 17, 2025",
+        "category": "Testing"
+    },
+    {
+        "id": 1,
+        "title": "My First Blog Post",
+        "content": "walang mailagay basta 'yan",
         "date": "April 17, 2025",
         "category": "Testing"
     }
