@@ -13,30 +13,39 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Lawrenz' Portfolio Website</a>
+            <a class="navbar-brand" href="#">Genczar's Web Log</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Tabs -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item">
                         <a class="nav-link active" href="#home" onclick="showTab('home')">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hobbies" onclick="showTab('hobbies')">Hobbies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills" onclick="showTab('skills')">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#expectations" onclick="showTab('expectations')">Expectations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacts" onclick="showTab('contacts')">Contacts</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#blog" onclick="showTab('blog')">Blog</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hobbies" onclick="showTab('hobbies')">Hobbies</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills" onclick="showTab('skills')">Skills</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#expectations" onclick="showTab('expectations')">Expectations</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts" onclick="showTab('contacts')">Contacts</a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -48,8 +57,8 @@
         <div id="home" class="tab-content active">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1>Hi, I'm Lawrenz</h1>
-                    <p>Welcome to my portfolio website! I'm an IT student aspiring to create amazing web and mobile applications.</p>
+                    <h1>Hi, I'm Genczar</h1>
+                    <p>Welcome to my Blog.</p>
                     <a href="#contacts" class="btn btn-primary" onclick="showTab('contacts')">Get in Touch</a>
                 </div>
                 <div class="col-md-6 text-center">
@@ -61,20 +70,26 @@
         <!-- Hobbies Tab -->
         <div id="hobbies" class="tab-content d-none">
             <h2>Hobbies</h2>
-            <p>I enjoy listening to music (Wagner and Ravel), reading philosophy and literature, I dabble on the guitar, and play video games. These activities keep me creative, active, and help me cope with stress. Images shown below (ctto because I have bad camera quality)</p>
+            <p>I enjoy playing video games, reading mangas and novels, I'm layman reader of philosophy, and I dabble on the guitar. These activities keep me creative, active, and help me cope with stress. Images shown below (ctto because I have bad camera quality)</p>
             <div class="row">
+
                 <div class="col-md-4 mb-3">
-                    <img src="assets/music.jpg" alt="Hobby 1" class="img-fluid rounded">
+                    <img src="assets/league.jpg" alt="Hobby 1" class="img-fluid rounded">
                 </div>
+
+                <div class="col-md-4 mb-3">
+                    <img src="assets/valorant.jpg" alt="Hobby 2" class="img-fluid rounded">
+                </div>
+
                 <div class="col-md-4 mb-3">
                     <img src="assets/philosophy.jpg" alt="Hobby 2" class="img-fluid rounded">
                 </div>
+
                 <div class="col-md-4 mb-3">
                     <img src="assets/guitar.jpg" alt="Hobby 3" class="img-fluid rounded">
                 </div>
-                <div class="col-md-4 mb-3">
-                    <img src="assets/game.png" alt="Hobby 4" class="img-fluid rounded">
-                </div>
+                
+                
             </div>
         </div>
 
@@ -83,11 +98,11 @@
             <h2>Skills</h2>
             <p>Here are some of my core skills (junior level/beginner-intermediate skills):</p>
             <ul class="list-group">
-                <li class="list-group-item">HTML, CSS, JavaScript</li>
-                <li class="list-group-item">Bootstrap or Tailwind & Responsive Design</li>
                 <li class="list-group-item">Java Android Game Development using LibGDX</li>
-                <li class="list-group-item">Working with Grok (X/Twitter) and GitHub CoPilot (to learn and enhance my skills, and use reverse engineering)</li>
-                <li class="list-group-item">Basic knowledge of numpy and panda with Python</li>
+                <li class="list-group-item">HTML, CSS, JavaScript</li>
+                <li class="list-group-item">Bootstrap/Tailwind Responsive Design</li>
+                <!-- <li class="list-group-item">Working with Grok (X/Twitter) and GitHub CoPilot (to learn and enhance my skills, and use reverse engineering)</li> -->
+                <li class="list-group-item">Numpy and Panda</li>
                 <!-- <li class="list-group-item">Node.js & Express</li>
                 <li class="list-group-item">Git & Version Control</li> -->
             </ul>
@@ -96,20 +111,21 @@
         <!-- Expectations Tab -->
         <div id="expectations" class="tab-content d-none">
             <h2>Expectations</h2>
-            <p>I aim to work on challenging projects that push my skills, collaborate with innovative teams, and contribute to meaningful solutions.</p>
+            <p>I aim to work on challenging projects that push my skills and contribute to meaningful solutions.</p>
+            <p>I would like to do more game development using LibGDX with Java, and learn Kotlin for creating utility applications on Android</p>
             <p>I'm interested in web and mobile development, and I'm eager to learn and grow in these areas.</p>
             <p>I want to learn React.js and Node.js, and proper software architecture</p>
             <p>I would like to learn more about AI and fundamental computer science concepts</p>
-            <p>I would also like to do more game development using LibGDX with Java, and learn Kotlin for creating utility applications on Android</p> 
-            <p>I plan to create a LinkedIn account in the future to connect with professional full-stack developers</p>
-            <p>I want to learn more about Git & Version Control along GitHub to save my projects and keep them ordered, updated, and easier to scale and control</p>
-            <p>I'm open to internships, freelance opportunities, and full-time positions -- my self-assesment for these positions is on the junior level (beginner-intermediate)</p>
+             
+            <!-- <p>I plan to create a LinkedIn account in the future to connect with professional full-stack developers</p> -->
+            <!-- <p>I want to learn more about Git & Version Control along GitHub to save my projects and keep them ordered, updated, and easier to scale and control</p> -->
+            <!-- <p>I'm open to internships, freelance opportunities, and full-time positions -- my self-assesment for these positions is on the junior level (beginner-intermediate)</p> -->
         </div>
 
         <!-- Contacts Tab -->
         <div id="contacts" class="tab-content d-none">
             <h2>Contact Me</h2>
-            <p>This page does not have server-side functionality -- yet. You can send a message but it won't go through my gmail account -- yet.</p>
+            <p>This page does not have server-side functionality yet. You can send a message but it won't go through my gmail account.</p>
             <form id="contactForm">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
