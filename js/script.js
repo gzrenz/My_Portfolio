@@ -33,11 +33,16 @@ function loadBlogs() {
     }
 
     window.blog_posts.forEach(post => {
+        const formattedContent = post.content
+        .replace(/\n/g, '<br>')
+        .replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');  // or '&emsp;' etc.
+
+
         const card = `
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">${post.title}</h5>
-                    <p class="card-text">${post.content}</p>
+                    <p class="card-text">${formattedContent}</p>
                     <p class="card-text">
                         <small class="text-muted">${post.date} • ${post.category || 'General'}</small>
                     </p>
