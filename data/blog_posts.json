@@ -1,8 +1,15 @@
 [
     {
+        "id": 2,
+        "title": "Order and Chaos",
+        "content": "Winds of past renown\n\tTreads on ice over abyss\n\t\tBeyond, calls a precious world of ours\n\nA quiet desperation for life shared with warmth\n\tInvites a wicked smile poised and cowled\n\t\t“Alas, you are ours”\n\nDeep in the cold embrace of the singy-song flowing water\n\tIn slips a shadow to the void drowned with whispering sorrow\n\t\tBleeding eyes sift past, piercing into light growing prouder by the hour\n\t\t\t“We are one” its maddened grin howls",
+        "date": "August 14, 2026",
+        "category": "Poetry"
+    },
+    {
         "id": 1,
         "title": "Writing for no reason",
-        "content": "Writing has always been therapeutic for me. When the world seems so loud and fuzzy, there is some peace I can take refuge to. I write not for the sake of other reasons. I write for the sake of writing itself. The most destructive and externally aimless activities are often the most profound. That is why I admire art.",
+        "content": "Writing has always been therapeutic for me. When the world seems so loud and fuzzy, there is some peace I can take refuge to. I write not for the sake of other reasons. I write for the sake of writing itself. The most destructive and externally aimless activities are often the most profound. ",
         "date": "August 14, 2026",
         "category": "Talking to a wall"
     }
